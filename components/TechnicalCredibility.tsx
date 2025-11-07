@@ -35,22 +35,28 @@ export default function TechnicalCredibility() {
   ];
   
   return (
-    <section className="py-20 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-green-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-3 bg-green-600 px-6 py-2 rounded-full mb-6">
-            <span className="font-semibold">{t.credibility.badge}</span>
+          <div className="inline-flex items-center gap-3 bg-green-600 px-6 py-2 rounded-full mb-6 shadow-lg">
+            <span className="font-semibold text-white">{t.credibility.badge}</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             {t.credibility.title}
           </h2>
-          <p className="mt-4 text-xl text-gray-300">
+          <p className="mt-4 text-xl text-gray-600">
             {t.credibility.subtitle}
           </p>
         </motion.div>
@@ -65,12 +71,12 @@ export default function TechnicalCredibility() {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-800 mb-4 ${stat.color}`}>
+              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4 shadow-md ${stat.color}`}>
                 <stat.icon className="h-8 w-8" />
               </div>
               
-              <div className="text-4xl font-bold mb-2">{stat.value}</div>
-              <div className="text-gray-400">{stat.label}</div>
+              <div className="text-4xl font-bold mb-2 text-gray-900">{stat.value}</div>
+              <div className="text-gray-600">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -81,7 +87,7 @@ export default function TechnicalCredibility() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 text-sm">
             {t.credibility.footer}
           </p>
         </motion.div>

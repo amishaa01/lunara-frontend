@@ -22,7 +22,10 @@ export default function SavingsCalculator() {
     { value: "business", label: t.calculator.buildingTypes.business },
   ];
   
-  const savings = useMemo(() => calculateSavings(monthlyBill), [monthlyBill]);
+  const savings = useMemo(
+    () => calculateSavings(monthlyBill, buildingType, district),
+    [monthlyBill, buildingType, district]
+  );
 
   return (
     <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-4xl mx-auto">
