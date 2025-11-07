@@ -21,9 +21,9 @@ export default function LiveCarbonIntensity() {
 
   if (isLoading) {
     return (
-      <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white shadow-lg">
-        <Loader2 className="h-5 w-5 animate-spin text-gray-400" />
-        <span className="text-sm text-gray-600">Loading grid data...</span>
+      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg bg-white border border-gray-200">
+        <Loader2 className="h-4 w-4 animate-spin text-gray-400" />
+        <span className="text-sm text-gray-600">Loading...</span>
       </div>
     );
   }
@@ -33,20 +33,23 @@ export default function LiveCarbonIntensity() {
       variants={scaleIn}
       initial="hidden"
       animate="visible"
-      className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white shadow-lg"
+      className="inline-flex items-center gap-4 px-5 py-2.5 rounded-lg bg-white border border-gray-200"
       role="status"
       aria-live="polite"
       aria-label={`Current carbon intensity: ${intensity} grams CO2 per kilowatt hour, ${trendInfo.label}`}
     >
-      <Activity className={cn("h-5 w-5", colorClass)} aria-hidden="true" />
+      <div className="flex items-center gap-2">
+        <Activity className="h-4 w-4 text-gray-400" aria-hidden="true" />
+        <span className="text-xs text-gray-500 font-medium">Live</span>
+      </div>
+      <div className="h-4 w-px bg-gray-200" />
       <div className="text-left">
-        <div className="text-xs text-gray-600 font-medium">Budapest Grid Now</div>
-        <div className="text-lg font-bold">
-          {intensity} <span className="text-sm font-normal text-gray-600">gCO₂/kWh</span>
+        <div className="text-sm font-semibold text-gray-900">
+          {intensity} <span className="text-xs font-normal text-gray-500">gCO₂/kWh</span>
         </div>
       </div>
-      <div className={cn("text-xs px-2 py-1 rounded font-medium", colorClass)}>
-        {trendInfo.icon} {trendInfo.label}
+      <div className="text-xs text-gray-500">
+        {trendInfo.icon}
       </div>
     </motion.div>
   );

@@ -10,9 +10,9 @@ const architectureLayers = [
     icon: Database,
     color: "bg-blue-500",
     items: [
-      { label: "MAVIR Grid API", detail: "Real-time carbon intensity" },
-      { label: "Weather Data", detail: "Temperature forecasting" },
-      { label: "Building BMS", detail: "Energy consumption patterns" },
+      { label: "Weather Data", detail: "Open-Meteo API (8,760 records)" },
+      { label: "Energy Patterns", detail: "Eurostat data (2,185 records)" },
+      { label: "Carbon Intensity", detail: "MAVIR patterns (365 records)" },
     ],
   },
   {
@@ -20,9 +20,9 @@ const architectureLayers = [
     icon: Brain,
     color: "bg-purple-500",
     items: [
-      { label: "Carbon Forecasting", detail: "LSTM neural network" },
-      { label: "Thermal Modeling", detail: "Building heat dynamics" },
-      { label: "RL Optimization", detail: "Multi-objective scheduling" },
+      { label: "Baseline Model", detail: "RandomForest (MAE: 0.128)" },
+      { label: "Optimized Model", detail: "GradientBoosting (MAE: 0.083)" },
+      { label: "Thermal Modeling", detail: "Physics-based calculation" },
     ],
   },
   {
@@ -30,9 +30,9 @@ const architectureLayers = [
     icon: Zap,
     color: "bg-green-500",
     items: [
-      { label: "Smart Scheduling", detail: "Automated HVAC control" },
-      { label: "Real-time Adjustment", detail: "Dynamic optimization" },
-      { label: "Performance Tracking", detail: "Savings validation" },
+      { label: "Carbon-Aware Scheduling", detail: "Grid intensity thresholds" },
+      { label: "Demand Prediction", detail: "35% improvement over baseline" },
+      { label: "Impact Calculation", detail: "Energy & CO₂ savings" },
     ],
   },
 ];
@@ -105,20 +105,20 @@ export default function TechnicalArchitecture() {
         >
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <Activity className="h-8 w-8 text-blue-400 mb-3" />
-            <div className="text-3xl font-bold mb-2">15 min</div>
-            <div className="text-gray-400">Data refresh interval</div>
+            <div className="text-3xl font-bold mb-2">11,310</div>
+            <div className="text-gray-400">Real data points</div>
           </div>
           
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <TrendingUp className="h-8 w-8 text-green-400 mb-3" />
-            <div className="text-3xl font-bold mb-2">85.1%</div>
-            <div className="text-gray-400">Model accuracy</div>
+            <div className="text-3xl font-bold mb-2">35%</div>
+            <div className="text-gray-400">MAE improvement</div>
           </div>
           
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <Zap className="h-8 w-8 text-yellow-400 mb-3" />
-            <div className="text-3xl font-bold mb-2">&lt;200ms</div>
-            <div className="text-gray-400">Optimization latency</div>
+            <div className="text-3xl font-bold mb-2">0.083</div>
+            <div className="text-gray-400">Optimized MAE</div>
           </div>
         </motion.div>
       </div>

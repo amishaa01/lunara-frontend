@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import LiveDemo from "@/components/LiveDemo";
@@ -11,17 +12,26 @@ import FinalCTA from "@/components/FinalCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <ProblemSection />
-      <LiveDemo />
-      <TechnicalArchitecture />
-      <ModelPerformance />
-      <HowItWorks />
-      <TechnicalCredibility />
-      <SocialProof />
-      <DistrictMap />
-      <FinalCTA />
-    </main>
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        <section id="home">
+          <HeroSection />
+        </section>
+        <ProblemSection />
+        <LiveDemo />
+        <section id="technical-architecture">
+          <TechnicalArchitecture />
+        </section>
+        <ModelPerformance />
+        <HowItWorks />
+        <TechnicalCredibility />
+        <SocialProof />
+        <section id="calculator">
+          <DistrictMap />
+        </section>
+        <FinalCTA />
+      </main>
+    </>
   );
 }

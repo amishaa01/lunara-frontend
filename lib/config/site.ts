@@ -8,8 +8,8 @@ export const siteConfig = {
     howItWorks: "#how-it-works",
   },
   constants: {
-    savingsRate: 0.29,
-    carbonMultiplier: 2.5,
+    savingsRate: 0.28, // Based on actual model improvement (28%)
+    carbonMultiplier: 2.85, // Hungarian grid factor 0.285 kg CO2/kWh * 10
     updateInterval: 15 * 60 * 1000, // 15 minutes
   },
 } as const;

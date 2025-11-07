@@ -7,30 +7,30 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 const metrics = [
   {
     icon: Target,
-    label: "Model Accuracy",
-    value: "85.1%",
-    detail: "Carbon intensity prediction",
+    label: "MAE Improvement",
+    value: "35%",
+    detail: "Over baseline model",
     color: "text-green-600 bg-green-100",
   },
   {
     icon: Cpu,
-    label: "Optimization Speed",
-    value: "<200ms",
-    detail: "Schedule computation time",
+    label: "Baseline MAE",
+    value: "0.128",
+    detail: "RandomForest baseline",
     color: "text-blue-600 bg-blue-100",
   },
   {
     icon: Database,
-    label: "Training Dataset",
-    value: "11,310+",
-    detail: "Hungarian grid data points",
+    label: "Optimized MAE",
+    value: "0.083",
+    detail: "GradientBoosting model",
     color: "text-purple-600 bg-purple-100",
   },
   {
     icon: Clock,
-    label: "Forecast Horizon",
-    value: "24h",
-    detail: "Ahead prediction window",
+    label: "Training Data",
+    value: "11,310+",
+    detail: "Real Hungarian data points",
     color: "text-orange-600 bg-orange-100",
   },
 ];
@@ -39,25 +39,25 @@ const technicalDetails = [
   {
     category: "Machine Learning Models",
     items: [
-      "LSTM Neural Network for carbon intensity forecasting",
-      "Reinforcement Learning (PPO) for schedule optimization",
-      "Thermal dynamics modeling with physics-informed constraints",
+      "RandomForest baseline (100 trees, depth 8)",
+      "GradientBoosting optimized (150 trees, depth 5)",
+      "Physics-based heating demand calculation",
     ],
   },
   {
     category: "Data Pipeline",
     items: [
-      "Real-time MAVIR API integration (15-min intervals)",
-      "Weather data fusion for temperature prediction",
-      "Building BMS integration for consumption patterns",
+      "Budapest weather data (Open-Meteo, 8,760 hourly records)",
+      "Hungarian energy patterns (Eurostat, 2,185 records)",
+      "Grid carbon intensity (MAVIR patterns, 365 daily records)",
     ],
   },
   {
     category: "Optimization Objectives",
     items: [
-      "Minimize carbon emissions (primary)",
-      "Minimize energy costs (secondary)",
-      "Maintain thermal comfort ±1°C (constraint)",
+      "Minimize heating demand prediction error (MAE)",
+      "Carbon-aware scheduling based on grid intensity",
+      "Building thermal mass utilization",
     ],
   },
 ];
@@ -82,7 +82,7 @@ export default function ModelPerformance() {
             Proven Technical Results
           </motion.h2>
           <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-600">
-            Validated across 1,000+ building simulations with real MAVIR data
+            Validated across 1,000 building simulations with real Hungarian data
           </motion.p>
         </motion.div>
 
@@ -142,28 +142,28 @@ export default function ModelPerformance() {
             <div>
               <h3 className="text-2xl font-bold mb-4">Validation Methodology</h3>
               <p className="text-green-100 leading-relaxed">
-                Our model was validated using historical MAVIR data from 2023-2024, 
-                covering diverse weather conditions and grid states. We simulated 1,000+ 
-                building configurations across Budapest districts, comparing LUNARA's 
-                optimized schedules against traditional fixed-schedule heating systems.
+                Our model was validated using 2023 Budapest weather data (8,760 hourly records), 
+                Hungarian energy patterns, and grid carbon intensity data. We simulated 1,000 
+                building configurations with physics-based heating demand calculations, comparing 
+                our GradientBoosting model against a RandomForest baseline.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">29%</div>
+                <div className="text-3xl font-bold">28%</div>
                 <div className="text-green-100 text-sm">Avg. Energy Reduction</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">320t</div>
-                <div className="text-green-100 text-sm">CO₂ Avoided/Year</div>
+                <div className="text-3xl font-bold">10.8k</div>
+                <div className="text-green-100 text-sm">tonnes CO₂/year (5% adoption)</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">100%</div>
-                <div className="text-green-100 text-sm">Comfort Maintained</div>
+                <div className="text-3xl font-bold">50k</div>
+                <div className="text-green-100 text-sm">Training samples</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">2M+</div>
-                <div className="text-green-100 text-sm">Decisions Optimized</div>
+                <div className="text-3xl font-bold">1,000</div>
+                <div className="text-green-100 text-sm">Buildings simulated</div>
               </div>
             </div>
           </div>

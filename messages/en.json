@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "docs": "Docs",
+    "calculator": "Calculator",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "LUNARA",
+    "subtitle": "AI-Optimized Carbon-Aware Heating",
+    "energyReduction": "Energy Reduction",
+    "co2Avoided": "Tonnes CO₂ Avoided",
+    "provenWith": "Proven with",
+    "dataPoints": "Hungarian Grid Data Points",
+    "liveDemo": "Live Demo",
+    "technicalDocs": "Technical Docs",
+    "realTimeOptimization": "Real-time optimization across",
+    "buildingSimulations": "building simulations"
+  },
+  "liveDemo": {
+    "title": "See Real-time Optimization in Action",
+    "subtitle": "24-hour building simulation with Hungarian grid carbon intensity patterns",
+    "chartTitle": "Carbon Intensity vs Heating Schedule",
+    "optimizationStrategy": "Optimization Strategy",
+    "step1Title": "Pre-heat During Low Carbon",
+    "step1Detail": "2:00-5:00 AM when grid is cleanest",
+    "step2Title": "Thermal Inertia Utilization",
+    "step2Detail": "Building retains heat during peak hours",
+    "step3Title": "Comfort Maintained",
+    "step3Detail": "Temperature stays within 20-22°C range",
+    "results": "24-Hour Results",
+    "energySavings": "Energy Savings",
+    "co2Avoided": "CO₂ Avoided",
+    "traditionalCost": "Traditional Cost",
+    "lunaraCost": "LUNARA Cost",
+    "technicalImplementation": "Technical Implementation",
+    "implementationDetail": "This simulation uses Hungarian grid carbon intensity patterns derived from MAVIR data. Our GradientBoosting model predicts heating demand with 35% better accuracy than baseline systems. The algorithm uses physics-based thermal modeling and carbon-aware scheduling to optimize energy usage while maintaining comfort within building thermal mass constraints."
+  },
+  "calculator": {
+    "title": "Your Potential Savings",
+    "yourDistrict": "Your District",
+    "buildingType": "Building Type",
+    "currentBill": "Current Monthly Heating Bill (€)",
+    "annualSavings": "Your Annual Savings",
+    "reduction": "reduction",
+    "monthlySavings": "Monthly Savings",
+    "co2Reduction": "CO₂ Reduction",
+    "equivalentTo": "That's equivalent to:",
+    "treesPlanted": "trees planted",
+    "kmNotDriven": "km not driven",
+    "kwhSaved": "kWh saved",
+    "disclaimer": "Based on validated model trained on 11,310+ real Hungarian data points. Actual savings may vary based on your specific building and usage patterns.",
+    "buildingTypes": {
+      "apartment": "Apartment (50-80m²)",
+      "largeApartment": "Large Apartment (80-120m²)",
+      "house": "House (120m²+)",
+      "business": "Small Business"
+    }
+  },
+  "modelPerformance": {
+    "title": "Proven Technical Results",
+    "subtitle": "Validated across 1,000 building simulations with real Hungarian data",
+    "maeImprovement": "MAE Improvement",
+    "overBaseline": "Over baseline model",
+    "baselineMAE": "Baseline MAE",
+    "randomForest": "RandomForest baseline",
+    "optimizedMAE": "Optimized MAE",
+    "gradientBoosting": "GradientBoosting model",
+    "trainingData": "Training Data",
+    "realDataPoints": "Real Hungarian data points",
+    "mlModels": "Machine Learning Models",
+    "dataPipeline": "Data Pipeline",
+    "optimizationObjectives": "Optimization Objectives",
+    "validationMethodology": "Validation Methodology",
+    "validationDetail": "Our model was validated using 2023 Budapest weather data (8,760 hourly records), Hungarian energy patterns, and grid carbon intensity data. We simulated 1,000 building configurations with physics-based heating demand calculations, comparing our GradientBoosting model against a RandomForest baseline.",
+    "avgEnergyReduction": "Avg. Energy Reduction",
+    "co2PerYear": "tonnes CO₂/year (5% adoption)",
+    "trainingSamples": "Training samples",
+    "buildingsSimulated": "Buildings simulated"
+  },
+  "architecture": {
+    "title": "From Grid Data to Optimized Schedules",
+    "subtitle": "Three-layer AI architecture processing 11,310+ data points hourly",
+    "dataIngestion": "Data Ingestion Layer",
+    "aiProcessing": "AI Processing Layer",
+    "execution": "Execution Layer",
+    "realDataPoints": "Real data points",
+    "maeImprovement": "MAE improvement",
+    "optimizedMAE": "Optimized MAE"
+  }
+}

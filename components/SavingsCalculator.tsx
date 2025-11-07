@@ -101,7 +101,7 @@ export default function SavingsCalculator() {
               </div>
               <div className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-2">
                 <TrendingDown className="h-4 w-4" aria-hidden="true" />
-                29% reduction
+                28% reduction
               </div>
             </div>
 
@@ -144,8 +144,8 @@ export default function SavingsCalculator() {
 
       <div className="mt-8 p-4 bg-blue-50 rounded-lg text-center">
         <p className="text-sm text-gray-700">
-          <strong>Based on real MAVIR data</strong> from District {district} buildings. 
-          Actual savings may vary based on your specific usage patterns.
+          <strong>Based on validated model</strong> trained on 11,310+ real Hungarian data points. 
+          Actual savings may vary based on your specific building and usage patterns.
         </p>
       </div>
     </div>

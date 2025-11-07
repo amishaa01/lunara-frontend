@@ -5,44 +5,35 @@ import { AlertCircle, Clock, TrendingUp, Thermometer } from "lucide-react";
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full mb-6 font-semibold">
-            <AlertCircle className="h-5 w-5" />
-            <span>Technical Challenge</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Grid-Building Energy Misalignment
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            The problem
           </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            Traditional heating systems operate on fixed schedules, ignoring real-time grid carbon intensity. 
-            This creates a <span className="font-bold text-red-600">temporal mismatch</span> between energy demand and clean supply.
+          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+            Building heating systems run on fixed schedules, ignoring when the grid is cleanest. 
+            This wastes energy and increases emissions unnecessarily.
           </p>
         </motion.div>
 
         {/* Visual Comparison */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
           {/* Traditional System */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-8 border-2 border-red-200"
+            className="bg-white rounded-lg p-8 border border-gray-200"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center">
-                <Clock className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">Traditional System</h3>
-                <p className="text-sm text-gray-600">Fixed schedule heating</p>
-              </div>
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Traditional</h3>
+              <p className="text-gray-600">Fixed schedule heating</p>
             </div>
 
             <div className="space-y-4">

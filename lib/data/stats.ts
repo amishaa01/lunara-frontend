@@ -10,20 +10,20 @@ export const technicalStats: Stat[] = [
   },
   {
     icon: TrendingDown,
-    value: "29%",
+    value: "28%",
     label: "Average proven savings",
     color: "text-green-600",
   },
   {
     icon: Building2,
     value: "1,000+",
-    label: "Buildings modeled",
+    label: "Buildings simulated",
     color: "text-purple-600",
   },
   {
     icon: Zap,
-    value: "2M+",
-    label: "Hourly decisions optimized",
+    value: "35%",
+    label: "MAE improvement over baseline",
     color: "text-orange-600",
   },
 ] as const;

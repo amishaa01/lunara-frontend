@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Főoldal",
+    "docs": "Dokumentáció",
+    "calculator": "Kalkulátor",
+    "language": "Nyelv"
+  },
+  "hero": {
+    "title": "LUNARA",
+    "subtitle": "AI-Optimalizált Szén-Tudatos Fűtés",
+    "energyReduction": "Energia Csökkentés",
+    "co2Avoided": "Tonna CO₂ Megtakarítás",
+    "provenWith": "Bizonyítva",
+    "dataPoints": "Magyar Hálózati Adatponttal",
+    "liveDemo": "Élő Demó",
+    "technicalDocs": "Műszaki Dokumentáció",
+    "realTimeOptimization": "Valós idejű optimalizálás",
+    "buildingSimulations": "épület szimulációban"
+  },
+  "liveDemo": {
+    "title": "Valós Idejű Optimalizálás Működés Közben",
+    "subtitle": "24 órás épület szimuláció magyar hálózati szén-intenzitási mintákkal",
+    "chartTitle": "Szén-intenzitás vs Fűtési Ütemterv",
+    "optimizationStrategy": "Optimalizálási Stratégia",
+    "step1Title": "Előmelegítés Alacsony Szén Mellett",
+    "step1Detail": "2:00-5:00 között, amikor a hálózat a legtisztább",
+    "step2Title": "Hőtehetetlenség Kihasználása",
+    "step2Detail": "Az épület megtartja a hőt csúcsidőben",
+    "step3Title": "Komfort Fenntartva",
+    "step3Detail": "A hőmérséklet 20-22°C tartományban marad",
+    "results": "24 Órás Eredmények",
+    "energySavings": "Energia Megtakarítás",
+    "co2Avoided": "CO₂ Elkerülve",
+    "traditionalCost": "Hagyományos Költség",
+    "lunaraCost": "LUNARA Költség",
+    "technicalImplementation": "Műszaki Megvalósítás",
+    "implementationDetail": "Ez a szimuláció MAVIR adatokból származó magyar hálózati szén-intenzitási mintákat használ. GradientBoosting modellünk 35%-kal pontosabban előrejelzi a fűtési igényt, mint az alaprendszerek. Az algoritmus fizikai alapú hőmodellezést és szén-tudatos ütemezést használ az energiafelhasználás optimalizálására, miközben fenntartja a kényelmet az épület hőtömeg-korlátain belül."
+  },
+  "calculator": {
+    "title": "Az Ön Potenciális Megtakarításai",
+    "yourDistrict": "Az Ön Kerülete",
+    "buildingType": "Épület Típusa",
+    "currentBill": "Jelenlegi Havi Fűtési Számla (€)",
+    "annualSavings": "Éves Megtakarítás",
+    "reduction": "csökkentés",
+    "monthlySavings": "Havi Megtakarítás",
+    "co2Reduction": "CO₂ Csökkentés",
+    "equivalentTo": "Ez egyenértékű:",
+    "treesPlanted": "ültetett fa",
+    "kmNotDriven": "km nem vezetett",
+    "kwhSaved": "kWh megtakarítva",
+    "disclaimer": "Validált modell alapján, 11 310+ valós magyar adatponttal betanítva. A tényleges megtakarítás változhat az Ön konkrét épületétől és használati szokásaitól függően.",
+    "buildingTypes": {
+      "apartment": "Lakás (50-80m²)",
+      "largeApartment": "Nagy Lakás (80-120m²)",
+      "house": "Ház (120m²+)",
+      "business": "Kisvállalkozás"
+    }
+  },
+  "modelPerformance": {
+    "title": "Bizonyított Műszaki Eredmények",
+    "subtitle": "Validálva 1000 épület szimulációban valós magyar adatokkal",
+    "maeImprovement": "MAE Javulás",
+    "overBaseline": "Az alapmodellhez képest",
+    "baselineMAE": "Alap MAE",
+    "randomForest": "RandomForest alap",
+    "optimizedMAE": "Optimalizált MAE",
+    "gradientBoosting": "GradientBoosting modell",
+    "trainingData": "Tanítási Adatok",
+    "realDataPoints": "Valós magyar adatpont",
+    "mlModels": "Gépi Tanulási Modellek",
+    "dataPipeline": "Adat Feldolgozás",
+    "optimizationObjectives": "Optimalizálási Célok",
+    "validationMethodology": "Validálási Módszertan",
+    "validationDetail": "Modellünket 2023-as budapesti időjárási adatokkal (8760 óránkénti rekord), magyar energiamintákkal és hálózati szén-intenzitási adatokkal validáltuk. 1000 épület konfigurációt szimuláltunk fizikai alapú fűtési igény számításokkal, összehasonlítva GradientBoosting modellünket egy RandomForest alapmodellel.",
+    "avgEnergyReduction": "Átl. Energia Csökkentés",
+    "co2PerYear": "tonna CO₂/év (5% elfogadás)",
+    "trainingSamples": "Tanítási minta",
+    "buildingsSimulated": "Szimulált épület"
+  },
+  "architecture": {
+    "title": "Hálózati Adatoktól az Optimalizált Ütemtervekig",
+    "subtitle": "Háromrétegű AI architektúra, amely óránként 11 310+ adatpontot dolgoz fel",
+    "dataIngestion": "Adat Betöltési Réteg",
+    "aiProcessing": "AI Feldolgozási Réteg",
+    "execution": "Végrehajtási Réteg",
+    "realDataPoints": "Valós adatpont",
+    "maeImprovement": "MAE javulás",
+    "optimizedMAE": "Optimalizált MAE"
+  }
+}

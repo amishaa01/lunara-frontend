@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import LiveCarbonIntensity from "./LiveCarbonIntensity";
 import BudapestSkyline from "./BudapestSkyline";
 import { Button } from "./ui/button";
@@ -28,7 +28,7 @@ const itemVariants = {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden flex items-center">
+    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden flex items-center pt-16 md:pt-20">
       <div className="absolute inset-0 opacity-30">
         <BudapestSkyline />
       </div>
@@ -40,42 +40,34 @@ export default function HeroSection() {
           animate="visible"
           className="text-center"
         >
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants}>
             <LiveCarbonIntensity />
           </motion.div>
           
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight"
+            className="mt-8 text-6xl md:text-8xl font-bold text-gray-900 leading-tight"
           >
-            Carbon-Aware Building<br />
-            Energy Management
+            LUNARA
           </motion.h1>
           
-          <motion.p 
+          <motion.h2
             variants={itemVariants}
-            className="mt-6 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="mt-4 text-2xl md:text-4xl font-semibold text-green-600"
           >
-            AI-powered heating optimization that reduces energy consumption by 29% 
-            while cutting carbon emissions through intelligent grid integration.
-          </motion.p>
+            AI-Optimized Carbon-Aware Heating
+          </motion.h2>
           
           <motion.div 
             variants={itemVariants}
-            className="mt-8 flex items-center justify-center gap-8 text-sm text-gray-500"
+            className="mt-8 space-y-3"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-              <span>MAVIR Integration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-600" />
-              <span>11,310+ Data Points</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-purple-600" />
-              <span>Real-time ML</span>
-            </div>
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-semibold">
+              28% Energy Reduction • 10.8k Tonnes CO₂ Avoided
+            </p>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Proven with <span className="font-bold text-blue-600">11,310+ Hungarian Grid Data Points</span>
+            </p>
           </motion.div>
           
           <motion.div 
@@ -100,7 +92,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="mt-12 flex items-center justify-center gap-2 text-gray-600"
           >
-            <TrendingDown className="h-5 w-5 text-green-600" />
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-sm font-medium">
               Real-time optimization across <span className="font-bold text-gray-900">1,000+ building simulations</span>
             </span>
