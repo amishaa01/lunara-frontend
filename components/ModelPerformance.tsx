@@ -3,66 +3,68 @@
 import { motion } from "framer-motion";
 import { Target, Cpu, Database, Clock } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
-
-const metrics = [
-  {
-    icon: Target,
-    label: "MAE Improvement",
-    value: "35%",
-    detail: "Over baseline model",
-    color: "text-green-600 bg-green-100",
-  },
-  {
-    icon: Cpu,
-    label: "Baseline MAE",
-    value: "0.128",
-    detail: "RandomForest baseline",
-    color: "text-blue-600 bg-blue-100",
-  },
-  {
-    icon: Database,
-    label: "Optimized MAE",
-    value: "0.083",
-    detail: "GradientBoosting model",
-    color: "text-purple-600 bg-purple-100",
-  },
-  {
-    icon: Clock,
-    label: "Training Data",
-    value: "11,310+",
-    detail: "Real Hungarian data points",
-    color: "text-orange-600 bg-orange-100",
-  },
-];
-
-const technicalDetails = [
-  {
-    category: "Machine Learning Models",
-    items: [
-      "RandomForest baseline (100 trees, depth 8)",
-      "GradientBoosting optimized (150 trees, depth 5)",
-      "Physics-based heating demand calculation",
-    ],
-  },
-  {
-    category: "Data Pipeline",
-    items: [
-      "Budapest weather data (Open-Meteo, 8,760 hourly records)",
-      "Hungarian energy patterns (Eurostat, 2,185 records)",
-      "Grid carbon intensity (MAVIR patterns, 365 daily records)",
-    ],
-  },
-  {
-    category: "Optimization Objectives",
-    items: [
-      "Minimize heating demand prediction error (MAE)",
-      "Carbon-aware scheduling based on grid intensity",
-      "Building thermal mass utilization",
-    ],
-  },
-];
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 export default function ModelPerformance() {
+  const { t } = useLanguage();
+  
+  const metrics = [
+    {
+      icon: Target,
+      label: t.modelPerformance.maeImprovement,
+      value: "35%",
+      detail: t.modelPerformance.overBaseline,
+      color: "text-green-600 bg-green-100",
+    },
+    {
+      icon: Cpu,
+      label: t.modelPerformance.baselineMAE,
+      value: "0.128",
+      detail: t.modelPerformance.randomForest,
+      color: "text-blue-600 bg-blue-100",
+    },
+    {
+      icon: Database,
+      label: t.modelPerformance.optimizedMAE,
+      value: "0.083",
+      detail: t.modelPerformance.gradientBoosting,
+      color: "text-purple-600 bg-purple-100",
+    },
+    {
+      icon: Clock,
+      label: t.modelPerformance.trainingData,
+      value: "11,310+",
+      detail: t.modelPerformance.realDataPoints,
+      color: "text-orange-600 bg-orange-100",
+    },
+  ];
+
+  const technicalDetails = [
+    {
+      category: t.modelPerformance.mlModels,
+      items: [
+        t.modelPerformance.mlModel1,
+        t.modelPerformance.mlModel2,
+        t.modelPerformance.mlModel3,
+      ],
+    },
+    {
+      category: t.modelPerformance.dataPipeline,
+      items: [
+        t.modelPerformance.dataItem1,
+        t.modelPerformance.dataItem2,
+        t.modelPerformance.dataItem3,
+      ],
+    },
+    {
+      category: t.modelPerformance.optimizationObjectives,
+      items: [
+        t.modelPerformance.optItem1,
+        t.modelPerformance.optItem2,
+        t.modelPerformance.optItem3,
+      ],
+    },
+  ];
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,14 +77,14 @@ export default function ModelPerformance() {
         >
           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-purple-600 px-4 py-2 rounded-full mb-6 text-white">
             <Cpu className="h-5 w-5" />
-            <span className="font-semibold">Model Performance</span>
+            <span className="font-semibold">{t.modelPerformance.badge}</span>
           </motion.div>
           
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-gray-900">
-            Proven Technical Results
+            {t.modelPerformance.title}
           </motion.h2>
           <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-600">
-            Validated across 1,000 building simulations with real Hungarian data
+            {t.modelPerformance.subtitle}
           </motion.p>
         </motion.div>
 
@@ -140,30 +142,27 @@ export default function ModelPerformance() {
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Validation Methodology</h3>
+              <h3 className="text-2xl font-bold mb-4">{t.modelPerformance.validationMethodology}</h3>
               <p className="text-green-100 leading-relaxed">
-                Our model was validated using 2023 Budapest weather data (8,760 hourly records), 
-                Hungarian energy patterns, and grid carbon intensity data. We simulated 1,000 
-                building configurations with physics-based heating demand calculations, comparing 
-                our GradientBoosting model against a RandomForest baseline.
+                {t.modelPerformance.validationDetail}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
                 <div className="text-3xl font-bold">28%</div>
-                <div className="text-green-100 text-sm">Avg. Energy Reduction</div>
+                <div className="text-green-100 text-sm">{t.modelPerformance.avgEnergyReduction}</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
                 <div className="text-3xl font-bold">10.8k</div>
-                <div className="text-green-100 text-sm">tonnes CO₂/year (5% adoption)</div>
+                <div className="text-green-100 text-sm">{t.modelPerformance.co2PerYear}</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
                 <div className="text-3xl font-bold">50k</div>
-                <div className="text-green-100 text-sm">Training samples</div>
+                <div className="text-green-100 text-sm">{t.modelPerformance.trainingSamples}</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
                 <div className="text-3xl font-bold">1,000</div>
-                <div className="text-green-100 text-sm">Buildings simulated</div>
+                <div className="text-green-100 text-sm">{t.modelPerformance.buildingsSimulated}</div>
               </div>
             </div>
           </div>

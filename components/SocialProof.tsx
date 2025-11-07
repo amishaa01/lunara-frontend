@@ -2,29 +2,32 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Katalin Nagy",
-    role: "Pensioner, District VIII",
-    quote: "Saved €200 last winter without feeling cold. Finally, technology that works for people like me.",
-    avatar: "👵",
-  },
-  {
-    name: "Péter Kovács",
-    role: "Small Business Owner, District V",
-    quote: "Cut our overhead by 25% during the energy crisis. LUNARA paid for itself in the first month.",
-    avatar: "👨‍💼",
-  },
-  {
-    name: "Anna Szabó",
-    role: "Building Manager, 50+ Apartments",
-    quote: "Implemented across all our properties seamlessly. Residents are happier and bills are lower.",
-    avatar: "👩‍💼",
-  },
-];
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 export default function SocialProof() {
+  const { t } = useLanguage();
+  
+  const testimonials = [
+    {
+      name: t.social.testimonial1Name,
+      role: t.social.testimonial1Role,
+      quote: t.social.testimonial1Quote,
+      avatar: "👵",
+    },
+    {
+      name: t.social.testimonial2Name,
+      role: t.social.testimonial2Role,
+      quote: t.social.testimonial2Quote,
+      avatar: "👨‍💼",
+    },
+    {
+      name: t.social.testimonial3Name,
+      role: t.social.testimonial3Role,
+      quote: t.social.testimonial3Quote,
+      avatar: "👩‍💼",
+    },
+  ];
+  
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,10 +38,10 @@ export default function SocialProof() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Real Budapest Residents
+            {t.social.title}
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            Join 1,000+ households already saving
+            {t.social.subtitle}
           </p>
         </motion.div>
 

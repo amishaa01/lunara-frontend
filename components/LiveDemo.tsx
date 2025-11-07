@@ -6,6 +6,7 @@ import { Play, Pause, RotateCcw, TrendingDown, TrendingUp } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from "recharts";
 import { Button } from "./ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 const generateMockData = () => {
   const hours = Array.from({ length: 24 }, (_, i) => i);
@@ -24,6 +25,7 @@ const generateMockData = () => {
 export default function LiveDemo() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [data] = useState(generateMockData());
+  const { t } = useLanguage();
 
   const traditionalCost = data.reduce((sum, d) => sum + (d.traditionalHeating * d.carbonIntensity / 100), 0);
   const lunaraCost = data.reduce((sum, d) => sum + (d.lunaraHeating * d.carbonIntensity / 100), 0);
@@ -45,10 +47,10 @@ export default function LiveDemo() {
           </motion.div>
           
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-gray-900">
-            See Real-time Optimization in Action
+            {t.liveDemo.title}
           </motion.h2>
           <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-600">
-            24-hour building simulation with Hungarian grid carbon intensity patterns
+            {t.liveDemo.subtitle}
           </motion.p>
         </motion.div>
 
@@ -61,7 +63,7 @@ export default function LiveDemo() {
             className="bg-white rounded-xl p-6 shadow-lg"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-bold text-gray-900">Carbon Intensity vs Heating Schedule</h3>
+              <h3 className="text-xl font-bold text-gray-900">{t.liveDemo.chartTitle}</h3>
               <div className="flex gap-2">
                 <Button
                   size="sm"
@@ -124,15 +126,15 @@ export default function LiveDemo() {
             className="space-y-6"
           >
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Optimization Strategy</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t.liveDemo.optimizationStrategy}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                     <span className="text-green-600 font-bold">1</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Pre-heat During Low Carbon</div>
-                    <div className="text-sm text-gray-600">2:00-5:00 AM when grid is cleanest</div>
+                    <div className="font-semibold text-gray-900">{t.liveDemo.step1Title}</div>
+                    <div className="text-sm text-gray-600">{t.liveDemo.step1Detail}</div>
                   </div>
                 </div>
                 
@@ -141,8 +143,8 @@ export default function LiveDemo() {
                     <span className="text-blue-600 font-bold">2</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Thermal Inertia Utilization</div>
-                    <div className="text-sm text-gray-600">Building retains heat during peak hours</div>
+                    <div className="font-semibold text-gray-900">{t.liveDemo.step2Title}</div>
+                    <div className="text-sm text-gray-600">{t.liveDemo.step2Detail}</div>
                   </div>
                 </div>
                 
@@ -151,8 +153,8 @@ export default function LiveDemo() {
                     <span className="text-purple-600 font-bold">3</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Comfort Maintained</div>
-                    <div className="text-sm text-gray-600">Temperature stays within 20-22°C range</div>
+                    <div className="font-semibold text-gray-900">{t.liveDemo.step3Title}</div>
+                    <div className="text-sm text-gray-600">{t.liveDemo.step3Detail}</div>
                   </div>
                 </div>
               </div>
@@ -160,28 +162,28 @@ export default function LiveDemo() {
 
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 shadow-lg text-white">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold">24-Hour Results</h3>
+                <h3 className="text-xl font-bold">{t.liveDemo.results}</h3>
                 <TrendingDown className="h-6 w-6" />
               </div>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <div className="text-3xl font-bold">{savings}%</div>
-                  <div className="text-green-100 text-sm">Energy Savings</div>
+                  <div className="text-green-100 text-sm">{t.liveDemo.energySavings}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold">{Math.round((traditionalCost - lunaraCost) / 10)}kg</div>
-                  <div className="text-green-100 text-sm">CO₂ Avoided</div>
+                  <div className="text-green-100 text-sm">{t.liveDemo.co2Avoided}</div>
                 </div>
               </div>
 
               <div className="mt-4 pt-4 border-t border-green-400">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-green-100">Traditional Cost</span>
+                  <span className="text-green-100">{t.liveDemo.traditionalCost}</span>
                   <span className="font-semibold">€{(traditionalCost / 100).toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm mt-2">
-                  <span className="text-green-100">LUNARA Cost</span>
+                  <span className="text-green-100">{t.liveDemo.lunaraCost}</span>
                   <span className="font-semibold">€{(lunaraCost / 100).toFixed(2)}</span>
                 </div>
               </div>
@@ -200,12 +202,9 @@ export default function LiveDemo() {
               <TrendingUp className="h-5 w-5 text-white" />
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-2">Technical Implementation</h4>
+              <h4 className="font-bold text-gray-900 mb-2">{t.liveDemo.technicalImplementation}</h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                This simulation uses Hungarian grid carbon intensity patterns derived from MAVIR data. 
-                Our GradientBoosting model predicts heating demand with 35% better accuracy than baseline systems. 
-                The algorithm uses physics-based thermal modeling and carbon-aware scheduling to optimize 
-                energy usage while maintaining comfort within building thermal mass constraints.
+                {t.liveDemo.implementationDetail}
               </p>
             </div>
           </div>

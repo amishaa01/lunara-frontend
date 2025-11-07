@@ -3,41 +3,43 @@
 import { motion } from "framer-motion";
 import { Database, Brain, Zap, Cloud, Activity, TrendingUp } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
-
-const architectureLayers = [
-  {
-    title: "Data Ingestion Layer",
-    icon: Database,
-    color: "bg-blue-500",
-    items: [
-      { label: "Weather Data", detail: "Open-Meteo API (8,760 records)" },
-      { label: "Energy Patterns", detail: "Eurostat data (2,185 records)" },
-      { label: "Carbon Intensity", detail: "MAVIR patterns (365 records)" },
-    ],
-  },
-  {
-    title: "AI Processing Layer",
-    icon: Brain,
-    color: "bg-purple-500",
-    items: [
-      { label: "Baseline Model", detail: "RandomForest (MAE: 0.128)" },
-      { label: "Optimized Model", detail: "GradientBoosting (MAE: 0.083)" },
-      { label: "Thermal Modeling", detail: "Physics-based calculation" },
-    ],
-  },
-  {
-    title: "Execution Layer",
-    icon: Zap,
-    color: "bg-green-500",
-    items: [
-      { label: "Carbon-Aware Scheduling", detail: "Grid intensity thresholds" },
-      { label: "Demand Prediction", detail: "35% improvement over baseline" },
-      { label: "Impact Calculation", detail: "Energy & CO₂ savings" },
-    ],
-  },
-];
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 export default function TechnicalArchitecture() {
+  const { t } = useLanguage();
+  
+  const architectureLayers = [
+    {
+      title: t.architecture.dataIngestion,
+      icon: Database,
+      color: "bg-blue-500",
+      items: [
+        { label: t.architecture.dataItem1, detail: t.architecture.dataDetail1 },
+        { label: t.architecture.dataItem2, detail: t.architecture.dataDetail2 },
+        { label: t.architecture.dataItem3, detail: t.architecture.dataDetail3 },
+      ],
+    },
+    {
+      title: t.architecture.aiProcessing,
+      icon: Brain,
+      color: "bg-purple-500",
+      items: [
+        { label: t.architecture.aiItem1, detail: t.architecture.aiDetail1 },
+        { label: t.architecture.aiItem2, detail: t.architecture.aiDetail2 },
+        { label: t.architecture.aiItem3, detail: t.architecture.aiDetail3 },
+      ],
+    },
+    {
+      title: t.architecture.execution,
+      icon: Zap,
+      color: "bg-green-500",
+      items: [
+        { label: t.architecture.execItem1, detail: t.architecture.execDetail1 },
+        { label: t.architecture.execItem2, detail: t.architecture.execDetail2 },
+        { label: t.architecture.execItem3, detail: t.architecture.execDetail3 },
+      ],
+    },
+  ];
   return (
     <section id="technical-architecture" className="py-20 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,14 +52,14 @@ export default function TechnicalArchitecture() {
         >
           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full mb-6">
             <Cloud className="h-5 w-5" />
-            <span className="font-semibold">System Architecture</span>
+            <span className="font-semibold">{t.architecture.badge}</span>
           </motion.div>
           
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold">
-            From Grid Data to Optimized Schedules
+            {t.architecture.title}
           </motion.h2>
           <motion.p variants={fadeInUp} className="mt-4 text-xl text-gray-300">
-            Three-layer AI architecture processing 11,310+ data points hourly
+            {t.architecture.subtitle}
           </motion.p>
         </motion.div>
 
@@ -106,19 +108,19 @@ export default function TechnicalArchitecture() {
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <Activity className="h-8 w-8 text-blue-400 mb-3" />
             <div className="text-3xl font-bold mb-2">11,310</div>
-            <div className="text-gray-400">Real data points</div>
+            <div className="text-gray-400">{t.architecture.realDataPoints}</div>
           </div>
           
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <TrendingUp className="h-8 w-8 text-green-400 mb-3" />
             <div className="text-3xl font-bold mb-2">35%</div>
-            <div className="text-gray-400">MAE improvement</div>
+            <div className="text-gray-400">{t.architecture.maeImprovement}</div>
           </div>
           
           <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
             <Zap className="h-8 w-8 text-yellow-400 mb-3" />
             <div className="text-3xl font-bold mb-2">0.083</div>
-            <div className="text-gray-400">Optimized MAE</div>
+            <div className="text-gray-400">{t.architecture.optimizedMAE}</div>
           </div>
         </motion.div>
       </div>

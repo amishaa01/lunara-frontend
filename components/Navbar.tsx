@@ -21,7 +21,7 @@ export default function Navbar() {
   
   const navItems = [
     { label: t.nav.home, href: "#home" },
-    { label: t.nav.docs, href: "#technical-architecture" },
+    { label: t.nav.docs, href: "/docs" },
     { label: t.nav.calculator, href: "#calculator" },
   ];
 
@@ -34,8 +34,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
     setIsOpen(false);
+    
+    // If it's a page link (starts with /), let Next.js handle it
+    if (href.startsWith('/')) {
+      return;
+    }
+    
+    // If it's an anchor link, handle smooth scroll
+    e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -62,11 +70,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#home");
-            }}
+            href="/"
             className="flex items-center gap-2 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -85,10 +89,7 @@ export default function Navbar() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
+                onClick={(e) => handleNavClick(item.href, e)}
                 className="text-gray-700 hover:text-green-600 font-medium transition-colors relative group"
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
@@ -188,10 +189,7 @@ export default function Navbar() {
                 <motion.a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
+                  onClick={(e) => handleNavClick(item.href, e)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}

@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import LiveCarbonIntensity from "./LiveCarbonIntensity";
 import BudapestSkyline from "./BudapestSkyline";
 import { Button } from "./ui/button";
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,8 @@ const itemVariants = {
 };
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden flex items-center pt-16 md:pt-20">
       <div className="absolute inset-0 opacity-30">
@@ -48,14 +51,14 @@ export default function HeroSection() {
             variants={itemVariants}
             className="mt-8 text-6xl md:text-8xl font-bold text-gray-900 leading-tight"
           >
-            LUNARA
+            {t.hero.title}
           </motion.h1>
           
           <motion.h2
             variants={itemVariants}
             className="mt-4 text-2xl md:text-4xl font-semibold text-green-600"
           >
-            AI-Optimized Carbon-Aware Heating
+            {t.hero.subtitle}
           </motion.h2>
           
           <motion.div 
@@ -63,10 +66,10 @@ export default function HeroSection() {
             className="mt-8 space-y-3"
           >
             <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-semibold">
-              28% Energy Reduction • 10.8k Tonnes CO₂ Avoided
+              28% {t.hero.energyReduction} • 10.8k {t.hero.co2Avoided}
             </p>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Proven with <span className="font-bold text-blue-600">11,310+ Hungarian Grid Data Points</span>
+              {t.hero.provenWith} <span className="font-bold text-blue-600">11,310+ {t.hero.dataPoints}</span>
             </p>
           </motion.div>
           
@@ -76,14 +79,14 @@ export default function HeroSection() {
           >
             <a href="#live-demo">
               <Button variant="primary" className="w-full sm:w-auto">
-                Live Demo
+                {t.hero.liveDemo}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </a>
             
             <a href="#technical-architecture">
               <Button variant="secondary" className="w-full sm:w-auto">
-                Technical Docs
+                {t.hero.technicalDocs}
               </Button>
             </a>
           </motion.div>
@@ -94,7 +97,7 @@ export default function HeroSection() {
           >
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-sm font-medium">
-              Real-time optimization across <span className="font-bold text-gray-900">1,000+ building simulations</span>
+              {t.hero.realTimeOptimization} <span className="font-bold text-gray-900">1,000+ {t.hero.buildingSimulations}</span>
             </span>
           </motion.div>
         </motion.div>

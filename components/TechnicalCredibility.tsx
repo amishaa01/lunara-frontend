@@ -2,35 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Database, TrendingDown, Building2, Zap } from "lucide-react";
-
-const stats = [
-  {
-    icon: Database,
-    value: "11,310+",
-    label: "Real Hungarian data points",
-    color: "text-blue-600",
-  },
-  {
-    icon: TrendingDown,
-    value: "29%",
-    label: "Average proven savings",
-    color: "text-green-600",
-  },
-  {
-    icon: Building2,
-    value: "1,000+",
-    label: "Buildings modeled",
-    color: "text-purple-600",
-  },
-  {
-    icon: Zap,
-    value: "2M+",
-    label: "Hourly decisions optimized",
-    color: "text-orange-600",
-  },
-];
+import { useLanguage } from "@/lib/contexts/LanguageContext";
 
 export default function TechnicalCredibility() {
+  const { t } = useLanguage();
+  
+  const stats = [
+    {
+      icon: Database,
+      value: "11,310+",
+      label: t.credibility.dataPoints,
+      color: "text-blue-600",
+    },
+    {
+      icon: TrendingDown,
+      value: "28%",
+      label: t.credibility.savings,
+      color: "text-green-600",
+    },
+    {
+      icon: Building2,
+      value: "1,000+",
+      label: t.credibility.buildings,
+      color: "text-purple-600",
+    },
+    {
+      icon: Zap,
+      value: "35%",
+      label: t.credibility.decisions,
+      color: "text-orange-600",
+    },
+  ];
+  
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,14 +44,14 @@ export default function TechnicalCredibility() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-3 bg-green-600 px-6 py-2 rounded-full mb-6">
-            <span className="font-semibold">MAVIR Data Partner</span>
+            <span className="font-semibold">{t.credibility.badge}</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold">
-            Built on Real Data
+            {t.credibility.title}
           </h2>
           <p className="mt-4 text-xl text-gray-300">
-            Not guesses. Not estimates. Actual Hungarian grid data.
+            {t.credibility.subtitle}
           </p>
         </motion.div>
 
@@ -79,7 +82,7 @@ export default function TechnicalCredibility() {
           className="mt-16 text-center"
         >
           <p className="text-gray-400 text-sm">
-            Data sourced from MAVIR (Hungarian Transmission System Operator) • Updated every 15 minutes
+            {t.credibility.footer}
           </p>
         </motion.div>
       </div>
