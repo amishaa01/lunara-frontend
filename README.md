@@ -4,7 +4,7 @@
 
 Production-ready Next.js 14 technical showcase demonstrating ML-powered heating optimization with real MAVIR grid data.
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Project Structure
 
@@ -70,7 +70,7 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette
 
@@ -91,7 +91,7 @@ Open [http://localhost:3000](http://localhost:3000)
 - **Sizes**: `sm`, `md`, `lg`
 - **States**: `default`, `hover`, `focus`, `disabled`, `loading`
 
-## 🔧 Key Features
+## Key Features
 
 ### 1. Live Technical Demo
 - 24-hour building simulation with real MAVIR patterns
@@ -125,7 +125,7 @@ Open [http://localhost:3000](http://localhost:3000)
 - Mobile responsive
 - Clean architecture
 
-## 📊 Technical Stack
+##  Technical Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript (strict mode)
@@ -136,7 +136,7 @@ Open [http://localhost:3000](http://localhost:3000)
 - **Forms**: React Hook Form + Zod
 - **State**: React Hooks
 
-## 🧪 Code Quality
+##  Code Quality
 
 ### Type Safety
 - Strict TypeScript configuration
@@ -156,21 +156,21 @@ Open [http://localhost:3000](http://localhost:3000)
 - Centralized configuration
 - Consistent naming conventions
 
-## 📱 Responsive Design
+##  Responsive Design
 
 - Mobile-first approach
 - Breakpoints: `sm`, `md`, `lg`, `xl`, `2xl`
 - Touch-friendly interfaces
 - Optimized for all screen sizes
 
-## 🌐 Browser Support
+##  Browser Support
 
 - Chrome/Edge (last 2 versions)
 - Firefox (last 2 versions)
 - Safari (last 2 versions)
 - Mobile Safari (last 2 versions)
 
-## 📝 Development Guidelines
+##  Development Guidelines
 
 ### Adding New Components
 
@@ -193,14 +193,14 @@ Open [http://localhost:3000](http://localhost:3000)
 - Consider reduced motion preferences
 - Test performance on low-end devices
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 ```env
 # Add your environment variables here
 NEXT_PUBLIC_API_URL=your_api_url
 ```
 
-## 📦 Build & Deploy
+##  Build & Deploy
 
 ```bash
 # Production build
@@ -216,17 +216,8 @@ npx tsc --noEmit
 npm run lint
 ```
 
-## 🤝 Contributing
-
-1. Follow existing code style
-2. Write meaningful commit messages
-3. Test on multiple devices
-4. Ensure accessibility compliance
-
 ## 📄 License
 
 MIT License - feel free to use for your projects
 
 ---
-
-Built with ❤️ for Budapest residents
