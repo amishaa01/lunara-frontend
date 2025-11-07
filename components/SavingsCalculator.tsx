@@ -1,28 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Calculator, TrendingDown } from "lucide-react";
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calculator, TrendingDown, Leaf, Car, Zap } from "lucide-react";
+import { calculateSavings, formatCurrency, formatNumber } from "@/lib/utils/calculations";
+import { BUDAPEST_DISTRICTS } from "@/lib/constants/districts";
+import { scaleIn } from "@/lib/utils/animations";
+import type { BuildingType } from "@/types";
+
+const buildingTypes: Array<{ value: BuildingType; label: string }> = [
+  { value: "apartment", label: "Apartment (50-80m²)" },
+  { value: "large-apartment", label: "Large Apartment (80-120m²)" },
+  { value: "house", label: "House (120m²+)" },
+  { value: "business", label: "Small Business" },
+];
 
 export default function SavingsCalculator() {
   const [district, setDistrict] = useState("8");
-  const [buildingType, setBuildingType] = useState("apartment");
+  const [buildingType, setBuildingType] = useState<BuildingType>("apartment");
   const [monthlyBill, setMonthlyBill] = useState(150);
   
-  const calculateSavings = () => {
-    const savingsRate = 0.29;
-    const monthlySavings = monthlyBill * savingsRate;
-    const yearlySavings = monthlySavings * 12;
-    const carbonReduction = yearlySavings * 2.5;
-    
-    return {
-      monthly: Math.round(monthlySavings),
-      yearly: Math.round(yearlySavings),
-      carbon: Math.round(carbonReduction),
-    };
-  };
-
-  const savings = calculateSavings();
+  const savings = useMemo(() => calculateSavings(monthlyBill), [monthlyBill]);
 
   return (
     <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-4xl mx-auto">
@@ -42,10 +40,11 @@ export default function SavingsCalculator() {
               onChange={(e) => setDistrict(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
             >
-              <option value="8">District VIII (Józsefváros)</option>
-              <option value="5">District V (Belváros)</option>
-              <option value="7">District VII (Erzsébetváros)</option>
-              <option value="6">District VI (Terézváros)</option>
+              {BUDAPEST_DISTRICTS.slice(0, 4).map((d) => (
+                <option key={d.id} value={d.id}>
+                  {d.name} ({d.fullName})
+                </option>
+              ))}
             </select>
           </div>
 
@@ -55,13 +54,14 @@ export default function SavingsCalculator() {
             </label>
             <select
               value={buildingType}
-              onChange={(e) => setBuildingType(e.target.value)}
+              onChange={(e) => setBuildingType(e.target.value as BuildingType)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900"
             >
-              <option value="apartment">Apartment (50-80m²)</option>
-              <option value="large-apartment">Large Apartment (80-120m²)</option>
-              <option value="house">House (120m²+)</option>
-              <option value="business">Small Business</option>
+              {buildingTypes.map((type) => (
+                <option key={type.value} value={type.value}>
+                  {type.label}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -85,42 +85,61 @@ export default function SavingsCalculator() {
           </div>
         </div>
 
-        <motion.div
-          key={`${district}-${buildingType}-${monthlyBill}`}
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 space-y-6"
-        >
-          <div className="text-center pb-6 border-b border-gray-200">
-            <div className="text-sm text-gray-600 mb-2">Your Annual Savings</div>
-            <div className="text-5xl font-bold text-green-600">€{savings.yearly}</div>
-            <div className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-2">
-              <TrendingDown className="h-4 w-4" />
-              29% reduction
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Monthly Savings</span>
-              <span className="text-2xl font-bold text-gray-900">€{savings.monthly}</span>
-            </div>
-
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">CO₂ Reduction</span>
-              <span className="text-2xl font-bold text-gray-900">{savings.carbon}kg</span>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`${district}-${buildingType}-${monthlyBill}`}
+            variants={scaleIn}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 space-y-6"
+          >
+            <div className="text-center pb-6 border-b border-gray-200">
+              <div className="text-sm text-gray-600 mb-2">Your Annual Savings</div>
+              <div className="text-5xl font-bold text-green-600">
+                {formatCurrency(savings.yearly)}
+              </div>
+              <div className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-2">
+                <TrendingDown className="h-4 w-4" aria-hidden="true" />
+                29% reduction
+              </div>
             </div>
 
-            <div className="pt-4 border-t border-gray-200">
-              <div className="text-sm text-gray-600 mb-2">That's equivalent to:</div>
-              <ul className="text-sm text-gray-700 space-y-1">
-                <li>🌳 {Math.round(savings.carbon / 20)} trees planted</li>
-                <li>🚗 {Math.round(savings.carbon / 0.4)} km not driven</li>
-                <li>💡 {Math.round(savings.yearly / 0.15)} kWh saved</li>
-              </ul>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-700">Monthly Savings</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  {formatCurrency(savings.monthly)}
+                </span>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <span className="text-gray-700">CO₂ Reduction</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  {formatNumber(savings.carbon)}kg
+                </span>
+              </div>
+
+              <div className="pt-4 border-t border-gray-200">
+                <div className="text-sm text-gray-600 mb-3">That's equivalent to:</div>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <Leaf className="h-4 w-4 text-green-600" aria-hidden="true" />
+                    <span>{formatNumber(savings.equivalents.trees)} trees planted</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <Car className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                    <span>{formatNumber(savings.equivalents.kmNotDriven)} km not driven</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm text-gray-700">
+                    <Zap className="h-4 w-4 text-yellow-600" aria-hidden="true" />
+                    <span>{formatNumber(savings.equivalents.kwhSaved)} kWh saved</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <div className="mt-8 p-4 bg-blue-50 rounded-lg text-center">

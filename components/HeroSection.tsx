@@ -4,62 +4,106 @@ import { motion } from "framer-motion";
 import { ArrowRight, TrendingDown } from "lucide-react";
 import LiveCarbonIntensity from "./LiveCarbonIntensity";
 import BudapestSkyline from "./BudapestSkyline";
+import { Button } from "./ui/button";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden flex items-center">
       <div className="absolute inset-0 opacity-30">
         <BudapestSkyline />
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="text-center"
         >
-          <LiveCarbonIntensity />
+          <motion.div variants={itemVariants} className="mb-6">
+            <LiveCarbonIntensity />
+          </motion.div>
           
-          <h1 className="mt-8 text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
-            Stop Paying Premium<br />
-            <span className="text-green-600">for Dirty Energy</span>
-          </h1>
+          <motion.h1 
+            variants={itemVariants}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight"
+          >
+            Carbon-Aware Building<br />
+            Energy Management
+          </motion.h1>
           
-          <p className="mt-6 text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-            LUNARA cuts heating costs <span className="font-bold text-green-600">29%</span> by scheduling 
-            your building's energy use around Budapest's cleanest grid hours
-          </p>
+          <motion.p 
+            variants={itemVariants}
+            className="mt-6 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+          >
+            AI-powered heating optimization that reduces energy consumption by 29% 
+            while cutting carbon emissions through intelligent grid integration.
+          </motion.p>
           
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="#calculator"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-green-600 rounded-lg hover:bg-green-700 shadow-lg"
-            >
-              Calculate Your Savings
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </motion.a>
+          <motion.div 
+            variants={itemVariants}
+            className="mt-8 flex items-center justify-center gap-8 text-sm text-gray-500"
+          >
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+              <span>MAVIR Integration</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-600" />
+              <span>11,310+ Data Points</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-purple-600" />
+              <span>Real-time ML</span>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            variants={itemVariants}
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <a href="#live-demo">
+              <Button variant="primary" className="w-full sm:w-auto">
+                Live Demo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
             
-            <motion.a
-              href="#how-it-works"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-50 shadow-lg"
-            >
-              See How It Works
-            </motion.a>
-          </div>
+            <a href="#technical-architecture">
+              <Button variant="secondary" className="w-full sm:w-auto">
+                Technical Docs
+              </Button>
+            </a>
+          </motion.div>
           
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="mt-12 flex items-center justify-center gap-2 text-green-700"
+            variants={itemVariants}
+            className="mt-12 flex items-center justify-center gap-2 text-gray-600"
           >
-            <TrendingDown className="h-5 w-5" />
-            <span className="text-sm font-medium">Live savings happening now across Budapest</span>
+            <TrendingDown className="h-5 w-5 text-green-600" />
+            <span className="text-sm font-medium">
+              Real-time optimization across <span className="font-bold text-gray-900">1,000+ building simulations</span>
+            </span>
           </motion.div>
         </motion.div>
       </div>
