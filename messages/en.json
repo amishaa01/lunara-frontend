@@ -169,8 +169,8 @@
     "subtitle": "See how much you could save with LUNARA",
     "ready": "Ready to start saving? Get notified when we launch in your district",
     "joinWaitlist": "Join Waitlist",
-    "footerText": "© 2025 LUNARA. Making Budapest's energy cleaner and cheaper.",
-    "footerData": "Data powered by MAVIR • Built for Budapest residents"
+    "footerCopyright": "© 2025 LUNARA",
+    "footerText": "Making Budapest's energy cleaner and cheaper."
   },
   "architecture": {
     "title": "From Grid Data to Optimized Schedules",

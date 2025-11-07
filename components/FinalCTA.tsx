@@ -67,8 +67,8 @@ export default function FinalCTA() {
       <footer className="mt-20 pt-12 border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-green-100">
-            <p className="mb-2">{t.finalCTA.footerText}</p>
-            <p className="text-sm">{t.finalCTA.footerData}</p>
+            <p className="mb-2">{t.finalCTA.footerCopyright}</p>
+            <p className="text-sm">{t.finalCTA.footerText}</p>
           </div>
         </div>
       </footer>

@@ -169,8 +169,8 @@
     "subtitle": "Nézd meg, mennyit takaríthatsz meg a LUNARA-val",
     "ready": "Készen állsz a megtakarításra? Értesítést kapsz, amikor elindulunk a kerületedben",
     "joinWaitlist": "Csatlakozz a Várólistához",
-    "footerText": "© 2025 LUNARA. Budapest energiáját tisztábbá és olcsóbbá tesszük.",
-    "footerData": "Adatok: MAVIR • Budapesti lakosoknak készült"
+    "footerCopyright": "© 2025 LUNARA",
+    "footerText": "Budapest energiáját tisztábbá és olcsóbbá tesszük."
   },
   "architecture": {
     "title": "Hálózati Adatoktól az Optimalizált Ütemtervekig",
