@@ -27,7 +27,7 @@ export default function ProblemSection() {
         {/* Visual Comparison */}
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-            Traditional vs LUNARA System
+            {t.problem.traditional} vs {t.problem.lunaraSystem}
           </h3>
         </div>
         
@@ -151,10 +151,10 @@ export default function ProblemSection() {
         {/* Technical Challenges */}
         <div className="mb-12 mt-20">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">
-            Technical Challenges
+            {t.problem.technicalChallenges || "Technical Challenges"}
           </h3>
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Why traditional systems can't optimize for carbon intensity
+            {t.problem.technicalChallengesDesc || "Why traditional systems can't optimize for carbon intensity"}
           </p>
         </div>
         

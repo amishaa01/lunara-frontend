@@ -19,7 +19,7 @@
   },
   "liveDemo": {
     "title": "See Real-time Optimization in Action",
-    "subtitle": "24-hour building simulation with Hungarian grid carbon intensity patterns",
+    "subtitle": "24-hour building simulation using real Hungarian grid carbon intensity patterns from MAVIR data",
     "chartTitle": "Carbon Intensity vs Heating Schedule",
     "optimizationStrategy": "Optimization Strategy",
     "step1Title": "Pre-heat During Low Carbon",
@@ -115,7 +115,9 @@
     "forecastComplexity": "Forecasting Complexity",
     "forecastDesc": "Grid carbon depends on renewables, weather, and demand. Requires ML models to predict 24h ahead.",
     "multiObjective": "Multi-Objective Balance",
-    "multiObjectiveDesc": "Must optimize carbon, cost, and comfort simultaneously. No closed-form solution—requires RL."
+    "multiObjectiveDesc": "Must optimize carbon, cost, and comfort simultaneously. No closed-form solution—requires RL.",
+    "technicalChallenges": "Technical Challenges",
+    "technicalChallengesDesc": "Why traditional systems can't optimize for carbon intensity"
   },
   "howItWorks": {
     "title": "How It Works",

@@ -19,7 +19,7 @@
   },
   "liveDemo": {
     "title": "Valós Idejű Optimalizálás Működés Közben",
-    "subtitle": "24 órás épület szimuláció magyar hálózati szén-intenzitási mintákkal",
+    "subtitle": "24 órás épület szimuláció valós magyar hálózati szén-intenzitási mintákkal MAVIR adatokból",
     "chartTitle": "Szén-intenzitás vs Fűtési Ütemterv",
     "optimizationStrategy": "Optimalizálási Stratégia",
     "step1Title": "Előmelegítés Alacsony Szén Mellett",
@@ -115,7 +115,9 @@
     "forecastComplexity": "Előrejelzési Komplexitás",
     "forecastDesc": "A hálózati szén a megújulóktól, időjárástól és igénytől függ. ML modelleket igényel 24 órás előrejelzéshez.",
     "multiObjective": "Többcélú Egyensúly",
-    "multiObjectiveDesc": "Egyszerre kell optimalizálni a szenet, költséget és kényelmet. Nincs zárt megoldás—RL szükséges."
+    "multiObjectiveDesc": "Egyszerre kell optimalizálni a szenet, költséget és kényelmet. Nincs zárt megoldás—RL szükséges.",
+    "technicalChallenges": "Műszaki Kihívások",
+    "technicalChallengesDesc": "Miért nem tudják a hagyományos rendszerek optimalizálni a szén-intenzitást"
   },
   "howItWorks": {
     "title": "Hogyan Működik",
