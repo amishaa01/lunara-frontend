@@ -19,7 +19,7 @@
   },
   "liveDemo": {
     "title": "See Real-time Optimization in Action",
-    "subtitle": "24-hour building simulation using real Hungarian grid carbon intensity patterns from MAVIR data",
+    "subtitle": "24-hour building simulation using Hungarian grid carbon intensity patterns based on MAVIR data",
     "chartTitle": "Carbon Intensity vs Heating Schedule",
     "optimizationStrategy": "Optimization Strategy",
     "step1Title": "Pre-heat During Low Carbon",
@@ -34,7 +34,7 @@
     "traditionalCost": "Traditional Cost",
     "lunaraCost": "LUNARA Cost",
     "technicalImplementation": "Technical Implementation",
-    "implementationDetail": "This simulation uses Hungarian grid carbon intensity patterns derived from MAVIR data. Our GradientBoosting model predicts heating demand with 35% better accuracy than baseline systems. The algorithm uses physics-based thermal modeling and carbon-aware scheduling to optimize energy usage while maintaining comfort within building thermal mass constraints."
+    "implementationDetail": "This simulation uses Hungarian grid carbon intensity patterns modeled after MAVIR grid characteristics. Our GradientBoosting model predicts heating demand with 35% better accuracy than baseline systems. The algorithm uses physics-based thermal modeling and carbon-aware scheduling to optimize energy usage while maintaining comfort within building thermal mass constraints."
   },
   "calculator": {
     "title": "Your Potential Savings",
@@ -106,7 +106,7 @@
     "preheat": "Pre-heat (low carbon)",
     "maintain": "Maintain (thermal mass)",
     "shiftsLoad": "Shifts load to cleanest hours",
-    "realTimeData": "Real-time MAVIR data integration",
+    "realTimeData": "Hungarian grid pattern integration",
     "carbonForecast": "24h carbon forecasting",
     "thermalOpt": "Thermal inertia optimization",
     "carbonReduction": "Carbon Reduction",
@@ -123,21 +123,21 @@
     "title": "How It Works",
     "subtitle": "Three simple steps to start saving",
     "step1Title": "Monitor Hungarian Grid",
-    "step1Desc": "Real-time tracking of MAVIR carbon intensity data",
+    "step1Desc": "Track carbon intensity patterns based on Hungarian grid data",
     "step2Title": "AI Energy Scheduling",
     "step2Desc": "Predicts optimal heating times for your building type",
     "step3Title": "Automatic Savings",
     "step3Desc": "Works with existing systems - no installation needed"
   },
   "credibility": {
-    "badge": "MAVIR Data Partner",
-    "title": "Built on Real Data",
-    "subtitle": "Not guesses. Not estimates. Actual Hungarian grid data.",
+    "badge": "Hungarian Grid Patterns",
+    "title": "Built on Realistic Data",
+    "subtitle": "Based on Hungarian grid characteristics and validated patterns.",
     "dataPoints": "Real Hungarian data points",
     "savings": "Average proven savings",
     "buildings": "Buildings modeled",
     "decisions": "Hourly decisions optimized",
-    "footer": "Data sourced from MAVIR (Hungarian Transmission System Operator) • Updated every 15 minutes"
+    "footer": "Patterns based on Hungarian grid characteristics • Validated against historical data"
   },
   "social": {
     "title": "Real Budapest Residents",

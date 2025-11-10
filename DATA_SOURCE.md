@@ -2,12 +2,12 @@
 
 ## Live Demo Component
 
-The Live Demo simulation uses **real Hungarian grid carbon intensity patterns** derived from MAVIR (Hungarian Transmission System Operator) data.
+The Live Demo simulation uses **Hungarian grid carbon intensity patterns** modeled after MAVIR (Hungarian Transmission System Operator) grid characteristics.
 
 ### Carbon Intensity Pattern
 
 The 24-hour carbon intensity pattern shown in the Live Demo is based on:
-- **Source**: MAVIR grid operator data (2023)
+- **Source**: MAVIR grid characteristics (2023 patterns)
 - **Pattern**: Typical winter day in Budapest
 - **Characteristics**:
   - Night (0-5h): 195-220 gCO₂/kWh (low demand, renewables)
@@ -29,7 +29,7 @@ The frontend visualization demonstrates the optimization strategy from our train
 
 **Frontend (Next.js)**:
 - Location: `components/LiveDemo.tsx`
-- Uses: Real carbon pattern from MAVIR data
+- Uses: Carbon pattern modeled after MAVIR grid characteristics
 - Shows: How LUNARA optimizes heating schedule based on carbon intensity
 
 ### Optimization Logic
@@ -49,13 +49,13 @@ The simulation demonstrates:
 
 ### Validation
 
-- Pattern validated against actual MAVIR grid data
+- Pattern modeled after Hungarian grid characteristics
 - Optimization strategy based on trained GradientBoosting model (MAE: 0.083)
 - Results validated on 1,000 building simulations
 
 ### Data Licenses
 
-- MAVIR data: Public Domain (derived)
+- Carbon patterns: Public Domain (generated based on grid characteristics)
 - Weather data: CC BY 4.0 (Open-Meteo)
 - Energy data: CC BY 4.0 (Eurostat)
 

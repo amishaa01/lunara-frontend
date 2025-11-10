@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import { useLanguage } from "@/lib/contexts/LanguageContext";
 
-// Real Hungarian grid carbon intensity pattern (derived from MAVIR data)
+// Hungarian grid carbon intensity pattern (modeled after MAVIR grid characteristics)
 // Typical winter day showing morning/evening peaks and night lows
 const REAL_CARBON_PATTERN = [
   220, 210, 205, 200, 195, 205,  // 0-5: Night (low carbon - renewables + low demand)
@@ -234,8 +234,8 @@ export default function LiveDemo() {
                 {t.liveDemo.implementationDetail}
               </p>
               <p className="text-gray-600 text-xs mt-3 italic">
-                Carbon intensity pattern derived from Hungarian grid operator (MAVIR) data. 
-                Heating optimization based on GradientBoosting model trained on 11,310+ real data points.
+                Carbon intensity pattern modeled after Hungarian grid characteristics (MAVIR-based). 
+                Heating optimization based on GradientBoosting model trained on 11,310+ data points.
               </p>
             </div>
           </div>

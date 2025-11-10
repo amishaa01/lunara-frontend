@@ -31,8 +31,8 @@ export default function DocsContent() {
                 </h3>
                 <p className="text-green-800">
                   LUNARA is an AI-powered system that optimizes building heating
-                  schedules based on real-time Hungarian grid carbon intensity
-                  data from MAVIR. It reduces energy costs by 28% while cutting
+                  schedules based on Hungarian grid carbon intensity patterns
+                  modeled after MAVIR data. It reduces energy costs by 28% while cutting
                   CO₂ emissions without compromising comfort.
                 </p>
               </div>
@@ -51,8 +51,7 @@ export default function DocsContent() {
                 <h3 className="font-semibold text-gray-900">Real Data</h3>
               </div>
               <p className="text-sm text-gray-600">
-                11,310+ Hungarian grid data points from MAVIR, Open-Meteo, and
-                Eurostat
+                11,310+ data points from Open-Meteo, Eurostat, and Hungarian grid patterns
               </p>
             </div>
 
@@ -121,8 +120,8 @@ export default function DocsContent() {
                     <li className="flex items-start gap-2">
                       <span className="text-green-600 mt-1">•</span>
                       <span>
-                        <strong>MAVIR Grid Data:</strong> Real-time carbon
-                        intensity (gCO₂/kWh)
+                        <strong>Hungarian Grid Patterns:</strong> Carbon
+                        intensity patterns (gCO₂/kWh)
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -252,7 +251,7 @@ python main.py`}
                 <ul className="text-blue-800 space-y-1">
                   <li>• Python 3.8 or higher</li>
                   <li>• Access to building management system API</li>
-                  <li>• MAVIR API credentials (contact us for access)</li>
+                  <li>• Carbon intensity data source (grid patterns or API)</li>
                   <li>• Building located in supported Budapest districts</li>
                 </ul>
               </div>
@@ -289,7 +288,7 @@ python main.py`}
                   records)
                 </li>
                 <li>
-                  • <strong>Carbon Data:</strong> MAVIR grid intensity (365
+                  • <strong>Carbon Data:</strong> Hungarian grid patterns (365
                   daily records)
                 </li>
               </ul>
@@ -473,7 +472,7 @@ python main.py`}
               </h3>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  • <strong>Source:</strong> MAVIR (Hungarian TSO)
+                  • <strong>Source:</strong> Hungarian grid patterns (MAVIR-based)
                 </li>
                 <li>
                   • <strong>License:</strong> Public Domain (derived)

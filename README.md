@@ -5,7 +5,7 @@ Carbon-aware heating optimization for Budapest buildings. Reduces energy costs b
 ## What it does
 
 <<<<<<< HEAD
-Predicts building heating demand and schedules heating during low-carbon hours. Uses GradientBoosting (MAE: 0.083) vs RandomForest baseline (MAE: 0.128). Trained on 11,310 data points from MAVIR, Open-Meteo, and Eurostat.
+Predicts building heating demand and schedules heating during low-carbon hours. Uses GradientBoosting (MAE: 0.083) vs RandomForest baseline (MAE: 0.128). Trained on 11,310 data points from Open-Meteo, Eurostat, and Hungarian grid patterns.
 
 ## Stack
 =======
@@ -76,7 +76,7 @@ Runs on `localhost:3000`.
 
 - Weather: 8,760 hourly records (Open-Meteo, Budapest 2023)
 - Energy: 2,185 consumption patterns (Eurostat)
-- Carbon: 365 daily grid intensity values (MAVIR patterns)
+- Carbon: 365 daily grid intensity patterns (Hungarian grid, MAVIR-based)
 
 All CC BY 4.0 or Public Domain. See backend `data_card.md` for details.
 
@@ -159,14 +159,14 @@ MIT
 ## Key Features
 
 ### 1. Live Technical Demo
-- 24-hour building simulation with real MAVIR patterns
+- 24-hour building simulation with Hungarian grid patterns
 - Interactive carbon intensity vs heating schedule visualization
 - Real-time optimization results
 - Before/after comparison with traditional systems
 
 ### 2. Technical Architecture Showcase
 - Three-layer AI system (Data → Processing → Execution)
-- Real Hungarian data integration (Open-Meteo, Eurostat, MAVIR patterns)
+- Hungarian data integration (Open-Meteo, Eurostat, grid patterns)
 - ML model specifications (RandomForest baseline + GradientBoosting optimized)
 - Performance metrics (MAE: 0.083, 35% improvement over baseline)
 

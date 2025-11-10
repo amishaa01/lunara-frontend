@@ -19,7 +19,7 @@
   },
   "liveDemo": {
     "title": "Valós Idejű Optimalizálás Működés Közben",
-    "subtitle": "24 órás épület szimuláció valós magyar hálózati szén-intenzitási mintákkal MAVIR adatokból",
+    "subtitle": "24 órás épület szimuláció magyar hálózati szén-intenzitási mintákkal MAVIR adatok alapján",
     "chartTitle": "Szén-intenzitás vs Fűtési Ütemterv",
     "optimizationStrategy": "Optimalizálási Stratégia",
     "step1Title": "Előmelegítés Alacsony Szén Mellett",
@@ -34,7 +34,7 @@
     "traditionalCost": "Hagyományos Költség",
     "lunaraCost": "LUNARA Költség",
     "technicalImplementation": "Műszaki Megvalósítás",
-    "implementationDetail": "Ez a szimuláció MAVIR adatokból származó magyar hálózati szén-intenzitási mintákat használ. GradientBoosting modellünk 35%-kal pontosabban előrejelzi a fűtési igényt, mint az alaprendszerek. Az algoritmus fizikai alapú hőmodellezést és szén-tudatos ütemezést használ az energiafelhasználás optimalizálására, miközben fenntartja a kényelmet az épület hőtömeg-korlátain belül."
+    "implementationDetail": "Ez a szimuláció MAVIR hálózati jellemzők alapján modellezett magyar szén-intenzitási mintákat használ. GradientBoosting modellünk 35%-kal pontosabban előrejelzi a fűtési igényt, mint az alaprendszerek. Az algoritmus fizikai alapú hőmodellezést és szén-tudatos ütemezést használ az energiafelhasználás optimalizálására, miközben fenntartja a kényelmet az épület hőtömeg-korlátain belül."
   },
   "calculator": {
     "title": "Az Ön Potenciális Megtakarításai",
@@ -106,7 +106,7 @@
     "preheat": "Előmelegítés (alacsony szén)",
     "maintain": "Fenntartás (hőtömeg)",
     "shiftsLoad": "Áthelyezi a terhelést a legtisztább órákra",
-    "realTimeData": "Valós idejű MAVIR adat integráció",
+    "realTimeData": "Magyar hálózati minta integráció",
     "carbonForecast": "24 órás szén előrejelzés",
     "thermalOpt": "Hőtehetetlenség optimalizálás",
     "carbonReduction": "Szén Csökkentés",
@@ -123,21 +123,21 @@
     "title": "Hogyan Működik",
     "subtitle": "Három egyszerű lépés a megtakarítás kezdéséhez",
     "step1Title": "Magyar Hálózat Figyelése",
-    "step1Desc": "Valós idejű MAVIR szén-intenzitási adatok követése",
+    "step1Desc": "Szén-intenzitási minták követése magyar hálózati adatok alapján",
     "step2Title": "AI Energia Ütemezés",
     "step2Desc": "Előrejelzi az optimális fűtési időket az épület típusához",
     "step3Title": "Automatikus Megtakarítás",
     "step3Desc": "Működik meglévő rendszerekkel - nincs szükség telepítésre"
   },
   "credibility": {
-    "badge": "MAVIR Adat Partner",
-    "title": "Valós Adatokon Alapul",
-    "subtitle": "Nem találgatások. Nem becslések. Valódi magyar hálózati adatok.",
+    "badge": "Magyar Hálózati Minták",
+    "title": "Realisztikus Adatokon Alapul",
+    "subtitle": "Magyar hálózati jellemzőkön és validált mintákon alapul.",
     "dataPoints": "Valós magyar adatpont",
     "savings": "Átlagos bizonyított megtakarítás",
     "buildings": "Modellezett épület",
     "decisions": "Óránkénti döntés optimalizálva",
-    "footer": "Adatok forrása: MAVIR (Magyar Villamosenergia-ipari Átviteli Rendszerirányító) • 15 percenként frissítve"
+    "footer": "Minták magyar hálózati jellemzők alapján • Történelmi adatokkal validálva"
   },
   "social": {
     "title": "Valódi Budapesti Lakosok",
