@@ -32,7 +32,7 @@ export default function DocsContent() {
                 <p className="text-green-800">
                   LUNARA is an AI-powered system that optimizes building heating
                   schedules based on Hungarian grid carbon intensity patterns
-                  modeled after MAVIR data. It reduces energy costs by 28% while cutting
+                  modeled after MAVIR data. It reduces energy costs by 37.9% while cutting
                   CO₂ emissions without compromising comfort.
                 </p>
               </div>
@@ -63,7 +63,7 @@ export default function DocsContent() {
                 <h3 className="font-semibold text-gray-900">Proven Savings</h3>
               </div>
               <p className="text-sm text-gray-600">
-                28% average energy reduction validated across 1,000 building
+                37.9% average energy reduction validated across 1,000 building
                 simulations
               </p>
             </div>
@@ -498,11 +498,11 @@ python main.py`}
             <h3 className="text-2xl font-bold mb-6">Validated Results</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <div className="text-4xl font-bold mb-2">28%</div>
+                <div className="text-4xl font-bold mb-2">37.9%</div>
                 <div className="text-green-100">Average Energy Reduction</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">10.8k</div>
+                <div className="text-4xl font-bold mb-2">20.5k</div>
                 <div className="text-green-100">
                   tonnes CO₂/year (5% adoption)
                 </div>
@@ -534,32 +534,32 @@ python main.py`}
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900">5%</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">9,000</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">40,000</td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    37.8M kWh/yr
+                    114 GWh/yr
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    10,780 tonnes
+                    20,480 tonnes
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">15%</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">27,000</td>
+                  <td className="px-6 py-4 text-sm text-gray-900">10%</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">80,000</td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    113.5M kWh/yr
+                    228 GWh/yr
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    32,342 tonnes
+                    40,960 tonnes
                   </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900">30%</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">54,000</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">240,000</td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    227M kWh/yr
+                    683 GWh/yr
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
-                    64,685 tonnes
+                    122,880 tonnes
                   </td>
                 </tr>
               </tbody>

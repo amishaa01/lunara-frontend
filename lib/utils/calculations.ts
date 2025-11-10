@@ -7,9 +7,9 @@ const CARBON_THRESHOLDS = {
 } as const;
 
 const EQUIVALENTS = {
-  treesPerKg: 0.05, // 1 tree absorbs ~20kg CO2/year
-  kmPerKg: 2.5, // 1kg CO2 = ~2.5km driven
-  kwhPerEuro: 6.67, // Average €0.15/kWh
+  treesPerKg: 0.04594, // 1 tree absorbs 21.77kg CO2/year (from CONFIG.py)
+  kmPerKg: 0.2174, // 1kg CO2 = 4.6 tonnes/car/year = 4600kg/car/year (from CONFIG.py)
+  kwhPerEuro: 8.333, // €0.12/kWh (Hungarian 2024 rates from CONFIG.py)
 } as const;
 
 // Building type efficiency from backend model
@@ -43,7 +43,7 @@ export function calculateSavings(
   buildingType: keyof typeof BUILDING_EFFICIENCY = "apartment",
   district: string = "8"
 ): SavingsResult {
-  const { savingsRate, carbonMultiplier } = siteConfig.constants;
+  const { savingsRate } = siteConfig.constants;
   
   // Calculate based on building characteristics from backend model
   const efficiency = BUILDING_EFFICIENCY[buildingType] || 0.85;
@@ -60,7 +60,15 @@ export function calculateSavings(
   
   const monthlySavings = monthlyBill * adjustedRate;
   const yearlySavings = monthlySavings * 12;
-  const carbonReduction = yearlySavings * carbonMultiplier;
+  
+  // From CONFIG.py: ENERGY_SAVED_KWH_PER_HOUSEHOLD_YEAR = 2,847 kWh/year
+  // CARBON_SAVED_KG_PER_HOUSEHOLD_YEAR = 512 kg/year
+  // COST_SAVED_EUR_PER_HOUSEHOLD_YEAR = 342 EUR/year
+  // Calculate kWh saved: yearlySavings (EUR) / 0.12 (EUR/kWh)
+  const kwhSaved = yearlySavings / 0.12;
+  
+  // Calculate carbon: kwhSaved * 0.180 (kg CO2/kWh from MAVIR 2024)
+  const carbonReduction = kwhSaved * 0.180;
   
   return {
     monthly: Math.round(monthlySavings),
@@ -69,7 +77,7 @@ export function calculateSavings(
     equivalents: {
       trees: Math.round(carbonReduction * EQUIVALENTS.treesPerKg),
       kmNotDriven: Math.round(carbonReduction * EQUIVALENTS.kmPerKg),
-      kwhSaved: Math.round(yearlySavings * EQUIVALENTS.kwhPerEuro),
+      kwhSaved: Math.round(kwhSaved),
     },
   };
 }

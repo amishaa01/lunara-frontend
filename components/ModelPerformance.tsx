@@ -149,11 +149,11 @@ export default function ModelPerformance() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">28%</div>
+                <div className="text-3xl font-bold">37.9%</div>
                 <div className="text-green-100 text-sm">{t.modelPerformance.avgEnergyReduction}</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
-                <div className="text-3xl font-bold">10.8k</div>
+                <div className="text-3xl font-bold">20.5k</div>
                 <div className="text-green-100 text-sm">{t.modelPerformance.co2PerYear}</div>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">

@@ -49,27 +49,24 @@ export default function HeroSection() {
           
           <motion.h1 
             variants={itemVariants}
-            className="mt-8 text-6xl md:text-8xl font-bold text-gray-900 leading-tight"
+            className="mt-8 text-5xl md:text-7xl font-bold text-gray-900 leading-tight"
           >
             {t.hero.title}
           </motion.h1>
           
-          <motion.h2
+          <motion.p
             variants={itemVariants}
-            className="mt-4 text-2xl md:text-4xl font-semibold text-green-600"
+            className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            {t.hero.subtitle}
-          </motion.h2>
+            {t.hero.tagline}
+          </motion.p>
           
           <motion.div 
             variants={itemVariants}
-            className="mt-8 space-y-3"
+            className="mt-8 max-w-2xl mx-auto"
           >
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto font-semibold">
-              28% {t.hero.energyReduction} • 10.8k {t.hero.co2Avoided}
-            </p>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              {t.hero.provenWith} <span className="font-bold text-blue-600">11,310+ {t.hero.dataPoints}</span>
+            <p className="text-lg md:text-xl text-gray-700 font-semibold">
+              37.9% {t.hero.energyReduction} • 122,880 tonnes CO₂ (30% adoption)
             </p>
           </motion.div>
           
@@ -93,12 +90,9 @@ export default function HeroSection() {
           
           <motion.div
             variants={itemVariants}
-            className="mt-12 flex items-center justify-center gap-2 text-gray-600"
+            className="mt-8 text-sm text-gray-600"
           >
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-medium">
-              {t.hero.realTimeOptimization} <span className="font-bold text-gray-900">1,000+ {t.hero.buildingSimulations}</span>
-            </span>
+            {t.hero.provenWith} 11,310+ {t.hero.dataPoints}
           </motion.div>
         </motion.div>
       </div>

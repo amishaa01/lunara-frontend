@@ -5,7 +5,6 @@ import TechnicalArchitecture from "@/components/TechnicalArchitecture";
 import ModelPerformance from "@/components/ModelPerformance";
 import HowItWorks from "@/components/HowItWorks";
 import TechnicalCredibility from "@/components/TechnicalCredibility";
-import SocialProof from "@/components/SocialProof";
 import DistrictMap from "@/components/DistrictMap";
 import FinalCTA from "@/components/FinalCTA";
 import SectionDivider from "@/components/SectionDivider";
@@ -30,8 +29,6 @@ export default function Home() {
       <HowItWorks />
       <SectionDivider />
       <TechnicalCredibility />
-      <SectionDivider />
-      <SocialProof />
       <SectionDivider />
       <section id="calculator">
         <DistrictMap />

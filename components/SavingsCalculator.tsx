@@ -106,7 +106,7 @@ export default function SavingsCalculator() {
               </div>
               <div className="text-sm text-gray-600 mt-2 flex items-center justify-center gap-2">
                 <TrendingDown className="h-4 w-4" aria-hidden="true" />
-                28% {t.calculator.reduction}
+                37.9% {t.calculator.reduction}
               </div>
             </div>
 

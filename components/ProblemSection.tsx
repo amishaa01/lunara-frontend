@@ -142,7 +142,7 @@ export default function ProblemSection() {
 
               <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-4 mt-6 shadow-lg">
                 <div className="text-xs text-green-100 font-semibold mb-1">{t.problem.result}</div>
-                <div className="text-3xl font-bold text-white">28% {t.problem.carbonReduction}</div>
+                <div className="text-3xl font-bold text-white">37.9% {t.problem.carbonReduction}</div>
               </div>
             </div>
           </motion.div>

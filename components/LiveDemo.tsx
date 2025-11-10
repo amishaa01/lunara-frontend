@@ -23,15 +23,15 @@ const generateRealData = () => {
     const carbonIntensity = REAL_CARBON_PATTERN[hour];
     
     // Traditional system: heats during occupied hours (6-22)
-    // Problem: often coincides with high carbon periods
-    const traditionalHeating = hour >= 6 && hour <= 22 ? 75 : 15;
+    // Based on CONFIG.py: 7,500 kWh/year ÷ 180 days = 41.67 kWh/day
+    const traditionalHeating = hour >= 6 && hour <= 22 ? 2100 : 500; // Watts
     
     // LUNARA optimized: pre-heats during low carbon (2-5), maintains during day
-    // Uses building thermal mass to shift load to cleaner hours
+    // Based on CONFIG.py: 37.9% reduction = 4,653 kWh/year ÷ 180 days = 25.85 kWh/day
     const lunaraHeating = 
-      (hour >= 2 && hour <= 5) ? 85 :  // Pre-heat during low carbon window
-      (hour >= 6 && hour <= 22) ? 35 : // Maintain (reduced heating, using thermal mass)
-      15;                               // Night setback
+      (hour >= 2 && hour <= 5) ? 2300 :  // Pre-heat during low carbon window (higher power)
+      (hour >= 6 && hour <= 22) ? 800 :  // Maintain (reduced heating, using thermal mass)
+      500;                                // Night setback
     
     // Indoor temperature maintained within comfort range (20-22°C)
     const temperature = 
@@ -54,9 +54,27 @@ export default function LiveDemo() {
   const [data] = useState(generateRealData());
   const { t } = useLanguage();
 
-  const traditionalCost = data.reduce((sum, d) => sum + (d.traditionalHeating * d.carbonIntensity / 100), 0);
-  const lunaraCost = data.reduce((sum, d) => sum + (d.lunaraHeating * d.carbonIntensity / 100), 0);
-  const savings = ((traditionalCost - lunaraCost) / traditionalCost * 100).toFixed(1);
+  // Calculate daily energy consumption (kWh)
+  const dailyTraditionalEnergy = data.reduce((sum, d) => sum + d.traditionalHeating, 0) / 1000;
+  const dailyLunaraEnergy = data.reduce((sum, d) => sum + d.lunaraHeating, 0) / 1000;
+  
+  // Project to annual (heating season: ~180 days/year in Budapest)
+  const heatingDays = 180;
+  const traditionalEnergy = dailyTraditionalEnergy * heatingDays;
+  const lunaraEnergy = dailyLunaraEnergy * heatingDays;
+  
+  // Calculate annual carbon emissions (kg CO2)
+  const dailyTraditionalCarbon = data.reduce((sum, d) => sum + (d.traditionalHeating * d.carbonIntensity / 1000000), 0);
+  const dailyLunaraCarbon = data.reduce((sum, d) => sum + (d.lunaraHeating * d.carbonIntensity / 1000000), 0);
+  const traditionalCarbon = dailyTraditionalCarbon * heatingDays;
+  const lunaraCarbon = dailyLunaraCarbon * heatingDays;
+  
+  // Calculate annual cost (EUR) - €0.12/kWh
+  const traditionalCost = traditionalEnergy * 0.12;
+  const lunaraCost = lunaraEnergy * 0.12;
+  
+  // Calculate savings percentage
+  const savings = ((traditionalEnergy - lunaraEnergy) / traditionalEnergy * 100).toFixed(1);
 
   return (
     <section id="live-demo" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -188,10 +206,11 @@ export default function LiveDemo() {
             </div>
 
             <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 shadow-lg text-white">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-2">
                 <h3 className="text-xl font-bold">{t.liveDemo.results}</h3>
                 <TrendingDown className="h-6 w-6" />
               </div>
+              <p className="text-green-100 text-xs mb-4">Annual projection (180-day heating season)</p>
               
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -199,7 +218,7 @@ export default function LiveDemo() {
                   <div className="text-green-100 text-sm">{t.liveDemo.energySavings}</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold">{Math.round((traditionalCost - lunaraCost) / 10)}kg</div>
+                  <div className="text-3xl font-bold">{Math.round(traditionalCarbon - lunaraCarbon)}kg</div>
                   <div className="text-green-100 text-sm">{t.liveDemo.co2Avoided}</div>
                 </div>
               </div>
@@ -207,11 +226,11 @@ export default function LiveDemo() {
               <div className="mt-4 pt-4 border-t border-green-400">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-green-100">{t.liveDemo.traditionalCost}</span>
-                  <span className="font-semibold">€{(traditionalCost / 100).toFixed(2)}</span>
+                  <span className="font-semibold">€{traditionalCost.toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm mt-2">
                   <span className="text-green-100">{t.liveDemo.lunaraCost}</span>
-                  <span className="font-semibold">€{(lunaraCost / 100).toFixed(2)}</span>
+                  <span className="font-semibold">€{lunaraCost.toFixed(2)}</span>
                 </div>
               </div>
             </div>

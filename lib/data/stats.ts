@@ -10,7 +10,7 @@ export const technicalStats: Stat[] = [
   },
   {
     icon: TrendingDown,
-    value: "28%",
+    value: "37.9%",
     label: "Average proven savings",
     color: "text-green-600",
   },

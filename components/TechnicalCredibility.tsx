@@ -16,7 +16,7 @@ export default function TechnicalCredibility() {
     },
     {
       icon: TrendingDown,
-      value: "28%",
+      value: "37.9%",
       label: t.credibility.savings,
       color: "text-green-600",
     },
